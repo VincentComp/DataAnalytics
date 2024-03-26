@@ -1,0 +1,37 @@
+[class source]
+-p	#P(bit = 1)
+-n_bit	#num of bit
+
++__init__()
++message(): void  	#Create random bit seqeunce with length = n_bit
+
+===========================================================================================
+
+[class binary_channel]
+-p_error1
+-p_error2
+
++ __init__(p_error = 0.1)
++set_assymmetric(p_error0, p_error1):void
++transmit(input_bitstrea): output_stream 	#return output_stream
+===========================================================================================
+[class repetition_coder()]
+- code_length
+
++ __init__(code_length = 1)
++ encode(input_msg): output_msg			#0100 -> 00110000 (e.g. code_length = 2)
++ decode(input_msg): output_msg			#001 011 010 110 -> 0101(e.g. code_length = 3) with major vote
+===========================================================================================
+[tcp_connection] #must be totally the same
+-coder = repetition_coder()
+-channel = binary_channel()
+
++__init__(coder = None, channel=None)
++transmit(message = [], verbose = False): xmit_count	#Verbose = show result; 
+							#Repeatly send until success/ xmit_count reach 10000
+
+
+
+===========================================================================================
+[Global]
++count_errors(msg_in,msg_out)			#compare num of errors

@@ -1,0 +1,114 @@
+#relative frequency
+
+import numpy as np
+import random
+a = np.array([1,2,3])
+b = np.random.randint(1,4,10)
+print(b)
+
+
+for i in range a.size:
+    compare = np.equal(b,a[i])
+    print(a[i], compare)
+    count = np.cumsum(compare)
+    print(a[i], count)
+
+
+
+
+#number of each items :data.groupby('Class')[Price].count()
+#total number of items: sum(data.groupby('Class')[Price].count())
+#sum of attributes : n_class = data.groupby('Class')['Price'].sum()
+
+
+
+#number of fulfilled criteria
+data['data_price'] = data['Price'] > 4 
+sum(data['data_price']) #number of fulfilled criteria
+data.groupby('Class')['data_price'].sum() #Each type
+==========================================================================================
+
+
+
+"""
+#groupby
+
+//Data
+           Class  Price
+Index                  
+1          fruit      5
+2          fruit      5
+3          fruit     10
+4          fruit     10
+5          fruit      3
+6      vegetable      1
+7      vegetable      1
+8      vegetable      5
+9      vegetable      2
+10     vegetable      4
+11         fruit      5
+12         fruit      5
+13     vegetable      1
+14     vegetable      5
+15     vegetable      2
+16     vegetable      4
+
+
+//data.groupby('Class')
+group fruit:
+    Index:1, Class:fruit, price:5
+    Index:2, Class:fruit, price:5
+    ...
+group vegetable:
+    Index:6, Class:vegetable,price:1
+    Index:7, Class:vegetable,price:1
+    ...
+
+
+//data.groupby('Class')[Price]
+group fruit:
+    price:5
+    price:5
+    ...
+group vegetable:
+    price:1
+    price:1
+    ...
+
+//data.groupby('Class')[Price].count() --> check valid
+fruit:7
+vegetable:9
+
+//sum(data.groupby('Class')[Price].count())
+16
+""""
+
+
+
+
+
+""""
+n_class = data.groupby('Class')['Price'].sum()
+           Class  Price
+Index                  
+1          fruit      5
+2          fruit      5
+3          fruit     10
+4          fruit     10
+5          fruit      3
+6      vegetable      1
+7      vegetable      1
+8      vegetable      5
+9      vegetable      2
+10     vegetable      4
+11         fruit      5
+12         fruit      5
+13     vegetable      1
+14     vegetable      5
+15     vegetable      2
+16     vegetable      4
+
+
+fruit        43
+vegetable    25
+"""

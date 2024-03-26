@@ -1,0 +1,5 @@
+50 Iris-setosa
+50 Iris-virginical
+
+#R.V. Pedal length
+

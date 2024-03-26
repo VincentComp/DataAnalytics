@@ -1,0 +1,63 @@
+#Note: True/False -> use sum
+        normal iterm -> use count()
+
+#Relative frequency of each 'Season' with rainy day
+['Rainy'] = (data['Rainfall'] > 0)
+data.groupby('Season')['Rainy'].sum() / sum(data.groupby('Season')['Season'].count())
+
+
+
+
+
+
+=================
+#data
+Index Date       Season  Rainfall       
+1	2021-01-01	winter	   0.0	        
+2	2021-01-02	winter	   0.0	        
+3	2021-01-03	winter	   0.0	        
+4	2021-01-04	winter	   0.0	        
+5	2021-01-05	winter	   0.0	        
+
+
+#['Rainy'] = (data['Rainfall'] > 0)
+Index Date       Season  Rainfall       Rainy
+1	2021-01-01	winter	   0.0	        False
+2	2021-01-02	winter	   0.0	        False
+3	2021-01-03	winter	   0.0	        False
+4	2021-01-04	winter	   0.0	        False
+5	2021-01-05	winter	   0.0	        False
+
+
+#data.groupby('Rainy')
+False:
+    Date:2021-01-01, Season:winter, Rainfall:0.0, Rainy:False
+    Date:2021-01-02, Season:winter, Rainfall:0.0, Rainy:False
+    Date:2021-01-03, Season:winter, Rainfall:0.0, Rainy:False
+    Date:2021-01-04, Season:winter, Rainfall:0.0, Rainy:False
+    Date:2021-01-05, Season:winter, Rainfall:0.0, Rainy:False
+
+True:
+    ...
+
+
+#data.groupby('Rainy')['Rainy'].count()
+False: 233
+True: 132
+
+#data.groupby('Rainy')['Rainy'].count()/sum('Rainy')['Rainy'].count()
+False: 233/365
+True: 132/365
+
+==============================================================================
+
+fall      91
+spring   92
+summer    92
+winter   90
+
+Rain
+fall 30
+spring29
+summer61
+winter 12
